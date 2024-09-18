@@ -1,7 +1,14 @@
 
-# mtl-tunedglobal
+# MTL TunedGlobal Sample Python Client
 
 `mtl-tunedglobal` is an exerimental command-line interface (CLI) tool to interact with the Tuned Global API. It allows users to search for songs using the services API and retrieve podcasts using the metadata API.
+
+## Demo Video
+Click the image below to watch the Loom demo video:
+
+[![Watch the demo](https://cdn.loom.com/sessions/thumbnails/d5ebc5d16fb545c8b8010daf24ef3a2b-9c07baf3de839fe4-full-play.gif)](https://www.loom.com/embed/d5ebc5d16fb545c8b8010daf24ef3a2b?sid=b74733e6-cdd8-4e29-aefe-58bd1d7dba95)
+
+
 
 ## Features
 
