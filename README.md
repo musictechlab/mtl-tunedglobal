@@ -19,22 +19,22 @@ poetry install
 
 ## Usage
 
-This package provides two main CLI commands:
+This package provides two main CLI groups: `services` and `metadata`.
 
 ### Search for a Song
 
-To search for a song, use the `search-song` command and provide the song name:
+To search for a song, use the `services search-song` command and provide the song name:
 
 ```bash
-poetry run app search-song "Imagine"
+poetry run app services search-song "Imagine"
 ```
 
 ### Get All Podcasts
 
-To retrieve all podcasts, use the `get-all-podcasts` command:
+To retrieve all podcasts, use the `metadata get-all-podcasts` command:
 
 ```bash
-poetry run app get-all-podcasts
+poetry run app metadata get-all-podcasts
 ```
 
 ## Project Structure
