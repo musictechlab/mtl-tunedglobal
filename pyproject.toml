@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "mtl-tunedglobal"
 version = "0.1.0"
-description = ""
+description = "An example CLI tool to interact with the Tuned Global API for music services and podcast metadata."
 authors = ["Mariusz Smenżyk <mariusz@musictachlab.io>"]
 readme = "README.md"
 
