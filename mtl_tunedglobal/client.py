@@ -21,7 +21,7 @@ class TunedGlobalClient:
             response.raise_for_status()  # Raise an error for bad status codes
             return response.json()
         except requests.exceptions.RequestException as e:
-            return {"error": str(e)}
+            return {"error": str(e), "response": response.json()}
 
 
 class TunedGlobalMetadataClient(TunedGlobalClient):
@@ -59,4 +59,5 @@ class TunedGlobalServicesClient(TunedGlobalClient):
         params = {
             "filter.name": song_name
         }
+        print (params)
         return self._make_get_request(endpoint, params=params)
