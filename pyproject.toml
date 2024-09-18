@@ -1,20 +1,21 @@
 [tool.poetry]
-name = "brave-tunedglobal"
+name = "mtl-tunedglobal"
 version = "0.1.0"
 description = ""
-authors = ["Mariusz Smenżyk <mariusz@bravelab.io>"]
+authors = ["Mariusz Smenżyk <mariusz@musictachlab.io>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.9"
-flask = "^2.0.0"
-requests = "^2.0.0"
-openai = "0.27.0"
+python = "^3.12"
 python-dotenv = "^0.21.0"
+pytest = "^8.3.3"
+requests = "^2.32.3"
 
+click = "^8.1.7"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
+
 [tool.poetry.scripts]
-start = "brave_tunedglobal:app.run"
+app = "mtl_tunedglobal:cli"

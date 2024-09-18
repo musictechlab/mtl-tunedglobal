@@ -1,95 +1,70 @@
-# GitHub to Webflow Integration
 
-This project is a Flask-based web application that allows users to fetch GitHub repository information and manually add it to a Webflow collection. The application uses the GitHub API to retrieve repository data and the Webflow API to add this data to a Webflow CMS collection.
+# mtl-tunedglobal
 
-![Screenshot of the Application](brave_tunedglobal/static/screenshot.png)
-
+`mtl-tunedglobal` is an exerimental command-line interface (CLI) tool to interact with the Tuned Global API. It allows users to search for songs using the services API and retrieve podcasts using the metadata API.
 
 ## Features
 
-- **GitHub Integration**: Fetches details of a GitHub repository, including the title, description, author, language, and more.
-- **OpenAI Integration (Optional)**: Enhances the description of the GitHub repository using OpenAI's GPT-3.5.
-- **Webflow Integration**: Manually add fetched GitHub repository data to a Webflow CMS collection with a single click.
+- **Search Songs**: Search for songs by name using the Tuned Global services API.
+- **Get All Podcasts**: Retrieve all podcasts using the Tuned Global metadata API.
 
-## Requirements
-
-- Python 3.8 or higher
-- Flask
-- Requests
-- dotenv (for managing environment variables)
-- OpenAI Python Client (if using the OpenAI enhancement)
 
 ## Installation
 
-1. **Clone the Repository**:
-    ```bash
-    git clone https://github.com/yourusername/brave-tunedglobal.git
-    cd brave-tunedglobal
-    ```
+To install the dependencies, you can use Poetry:
 
-2. **Install Dependencies**:
-    ```bash
-    poetry install
-    ```
-
-3. **Configure Environment Variables**:
-    - Create a `.env` file in the root of your project and add the following environment variables:
-
-    ```env
-    GITHUB_API_URL=https://api.github.com/repos/
-    OPENAI_API_KEY=your_openai_api_key
-    WEBFLOW_API_KEY=your_webflow_api_key
-    WEBFLOW_COLLECTION_ID=your_webflow_collection_id
-    USE_OPENAI_ENHANCED_DATA=true  # Set to 'false' if you don't want to use OpenAI for enhanced descriptions
-    ```
-
-4. **Run the Application**:
-    ```bash
-    flask run start 
-    ```
-    or
-    ```bash
-    poetry run python -m brave_tunedglobal
-    ```
-
-6. **Access the Application**:
-    - Open your web browser and navigate to `http://127.0.0.1:5000/`.
+```bash
+poetry install
+```
 
 ## Usage
 
-1. **Fetch GitHub Repository Information**:
-    - Enter the URL of a public GitHub repository in the input field and click "Get Info".
-    - The application will fetch and display information about the repository.
+This package provides two main CLI commands:
 
-2. **Add to Webflow Collection**:
-    - After the repository information is displayed, you can manually add this data to your Webflow collection by clicking the "Add to Webflow Collection" button.
-    - The application will send the data to Webflow using the Webflow API and display the response on the page.
+### Search for a Song
+
+To search for a song, use the `search-song` command and provide the song name:
+
+```bash
+poetry run app search-song "Imagine"
+```
+
+### Get All Podcasts
+
+To retrieve all podcasts, use the `get-all-podcasts` command:
+
+```bash
+poetry run app get-all-podcasts
+```
 
 ## Project Structure
 
-- `app.py`: Main application file containing the Flask app and route handlers.
-- `templates/index.html`: HTML template for the main page.
-- `static/`: Directory for static files like CSS and JavaScript (not used extensively in this project).
-- `.env`: Environment variables file (not included in the repository, to be created manually).
-- `README.md`: This file.
+- **TunedGlobalClient**: Base class that handles API requests.
+- **TunedGlobalMetadataClient**: Class that interacts with the metadata API.
+- **TunedGlobalServicesClient**: Class that interacts with the services API.
+- **CLI**: Command-line interface using `click` for interaction.
 
+## Environment Variables
 
-## Troubleshooting
+The API requires a `StoreId` which is your API key. You can set this in your environment or use a `.env` file.
 
-- **Validation Errors**: Ensure that the data sent to Webflow matches the collection schema exactly. Field names and data types must align with those defined in your Webflow collection.
-- **GitHub Rate Limits**: If you're fetching a lot of repositories, be aware of GitHub's API rate limits.
+```bash
+export TUNEDGLOBAL_API_KEY="your_api_key"
+```
 
-## Contributing
+Or create a `.env` file with the following content:
 
-Contributions are welcome! Please fork this repository and submit a pull request if you would like to contribute.
+```bash
+TUNEDGLOBAL_API_KEY=your_api_key
+```
+
+## Tests
+
+To run test use this command
+```bash
+poetry run pytest
+```
 
 ## License
 
-This project is licensed under the MIT License. 
-
-## Acknowledgments
-
-- [Flask](https://flask.palletsprojects.com/) - The web framework used for this project.
-- [GitHub API](https://docs.github.com/en/rest) - Used to fetch repository data.
-- [Webflow API](https://developers.webflow.com/) - Used to add items to Webflow collections.
-- [OpenAI GPT-3.5](https://openai.com/gpt-3/) - Optionally used to enhance repository descriptions.
+This project is licensed under the MIT License.
